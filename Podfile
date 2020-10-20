@@ -8,5 +8,10 @@ target 'FireBaseTests' do
 pod 'Firebase/Core', '~> 4.13.0'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/Analytics'
+pod 'Firebase/Storage'
+
+
+pod 'Appirater'
 
 end

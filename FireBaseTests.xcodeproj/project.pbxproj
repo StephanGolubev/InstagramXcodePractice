@@ -29,6 +29,10 @@
 		FFF98A0B253F0C91006E49D1 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A0A253F0C91006E49D1 /* SearchResultViewController.swift */; };
 		FFF98A0E253F0CA3006E49D1 /* PostEditerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A0D253F0CA3006E49D1 /* PostEditerViewController.swift */; };
 		FFF98A11253F0CB3006E49D1 /* PublishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A10253F0CB3006E49D1 /* PublishPostViewController.swift */; };
+		FFF98A54253F19A6006E49D1 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A53253F19A6006E49D1 /* DatabaseManager.swift */; };
+		FFF98A57253F1AD8006E49D1 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A56253F1AD8006E49D1 /* AuthManager.swift */; };
+		FFF98A5A253F1B38006E49D1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A59253F1B38006E49D1 /* StorageManager.swift */; };
+		FFF98A6C253F23C1006E49D1 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF98A6B253F23C1006E49D1 /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		FFF98A0A253F0C91006E49D1 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		FFF98A0D253F0CA3006E49D1 /* PostEditerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditerViewController.swift; sourceTree = "<group>"; };
 		FFF98A10253F0CB3006E49D1 /* PublishPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishPostViewController.swift; sourceTree = "<group>"; };
+		FFF98A53253F19A6006E49D1 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		FFF98A56253F1AD8006E49D1 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		FFF98A59253F1B38006E49D1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FFF98A6B253F23C1006E49D1 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +159,10 @@
 				FF6339362539DC940097F1C5 /* Assets.xcassets */,
 				FF63392D2539DC910097F1C5 /* AppDelegate.swift */,
 				FF63392F2539DC910097F1C5 /* SceneDelegate.swift */,
+				FFF98A53253F19A6006E49D1 /* DatabaseManager.swift */,
+				FFF98A56253F1AD8006E49D1 /* AuthManager.swift */,
+				FFF98A59253F1B38006E49D1 /* StorageManager.swift */,
+				FFF98A6B253F23C1006E49D1 /* Extentions.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -178,14 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				FFF989EF253F0BFC006E49D1 /* Onboarding */,
-				FFF989F7253F0C2D006E49D1 /* PostViewController.swift */,
-				FFF989FA253F0C45006E49D1 /* EditProfileViewController.swift */,
-				FFF989FD253F0C4E006E49D1 /* SettingsViewController.swift */,
-				FFF98A00253F0C60006E49D1 /* ListViewController.swift */,
-				FFF98A03253F0C71006E49D1 /* SearchViewController.swift */,
-				FFF98A0A253F0C91006E49D1 /* SearchResultViewController.swift */,
-				FFF98A0D253F0CA3006E49D1 /* PostEditerViewController.swift */,
-				FFF98A10253F0CB3006E49D1 /* PublishPostViewController.swift */,
+				FFF98A51253F16EE006E49D1 /* General */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -206,6 +211,21 @@
 				FF6339332539DC910097F1C5 /* Main.storyboard */,
 			);
 			path = Storeboard;
+			sourceTree = "<group>";
+		};
+		FFF98A51253F16EE006E49D1 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				FFF989F7253F0C2D006E49D1 /* PostViewController.swift */,
+				FFF989FA253F0C45006E49D1 /* EditProfileViewController.swift */,
+				FFF989FD253F0C4E006E49D1 /* SettingsViewController.swift */,
+				FFF98A00253F0C60006E49D1 /* ListViewController.swift */,
+				FFF98A03253F0C71006E49D1 /* SearchViewController.swift */,
+				FFF98A0A253F0C91006E49D1 /* SearchResultViewController.swift */,
+				FFF98A0D253F0CA3006E49D1 /* PostEditerViewController.swift */,
+				FFF98A10253F0CB3006E49D1 /* PublishPostViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,16 +351,20 @@
 				FFF989E5253F0B98006E49D1 /* CameraViewController.swift in Sources */,
 				FF6339322539DC910097F1C5 /* HomeViewController.swift in Sources */,
 				FFF989F8253F0C2D006E49D1 /* PostViewController.swift in Sources */,
+				FFF98A5A253F1B38006E49D1 /* StorageManager.swift in Sources */,
 				FFF989E8253F0BA5006E49D1 /* NotificationsViewController.swift in Sources */,
+				FFF98A54253F19A6006E49D1 /* DatabaseManager.swift in Sources */,
 				FFF98A0B253F0C91006E49D1 /* SearchResultViewController.swift in Sources */,
 				FFF989F1253F0C0D006E49D1 /* LoginViewController.swift in Sources */,
 				FFF98A04253F0C71006E49D1 /* SearchViewController.swift in Sources */,
 				FFF989EB253F0BB3006E49D1 /* ProfileViewController.swift in Sources */,
 				FFF98A0E253F0CA3006E49D1 /* PostEditerViewController.swift in Sources */,
+				FFF98A57253F1AD8006E49D1 /* AuthManager.swift in Sources */,
 				FF63392E2539DC910097F1C5 /* AppDelegate.swift in Sources */,
 				FF6339302539DC910097F1C5 /* SceneDelegate.swift in Sources */,
 				FFF98A01253F0C60006E49D1 /* ListViewController.swift in Sources */,
 				FFF989FE253F0C4E006E49D1 /* SettingsViewController.swift in Sources */,
+				FFF98A6C253F23C1006E49D1 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

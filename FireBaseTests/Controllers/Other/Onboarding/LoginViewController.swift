@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     
@@ -70,7 +71,7 @@ class LoginViewController: UIViewController {
     
     private let  privacyButton: UIButton = {
         let button =  UIButton ()
-        button.setTitle("Privecy and Policy", for: .normal)
+        button.setTitle("Privecy and Policy ", for: .normal)
         button.setTitleColor(.secondaryLabel, for: .normal)
         
         return button
@@ -142,6 +143,10 @@ class LoginViewController: UIViewController {
         
     
         configerHeaderView()
+        
+        createAccountView.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+
 
         // Do any additional setup after loading the view.
     }
@@ -165,6 +170,8 @@ class LoginViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
          
+
+         
     }
     
     
@@ -186,10 +193,46 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @objc private func didTapLoginButton(){}
-    @objc private func didTapTermsButton() {}
-    @objc private func didTapPrivacyButton() {}
-    @objc private func didTapCreateAccountButton(){}
+    @objc private func didTapLoginButton(){
+        passwordField.resignFirstResponder()
+        usernameEmailField.resignFirstResponder()
+        
+        guard let usernameEmail = usernameEmailField.text, !usernameEmail.isEmpty,let userPassword = passwordField.text, !userPassword.isEmpty, userPassword.count >= 8 else{
+            return
+        }
+        
+        var username: String?
+        var email: String?
+        
+        if usernameEmail.contains("@"),usernameEmail.contains(".") {
+            email = usernameEmail
+        }
+        else{
+            username = usernameEmail
+        }
+        
+        AuthManager.shared.loginUser(username: username, email: email, password: userPassword) {success in
+            
+            DispatchQueue.main.async {
+                if success{
+                    self.dismiss(animated: true, completion: nil)
+                }
+                else{
+                    let alters = UIAlertController(title: "Error", message: "You were not able to login", preferredStyle: .alert)
+                    alters.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alters, animated: true)
+                }
+                
+            }
+            
+            
+        }
+        
+}
+    @objc private func didTapCreateAccountButton(){
+        let vc = RegisterViewController()
+        present(vc, animated: true)
+    }
     
 }
 
